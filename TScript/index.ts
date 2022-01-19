@@ -1,3 +1,5 @@
+/*
+
 //объявление типа
 let string: string = 'Hello TS';
 let num: number = 5;
@@ -24,15 +26,15 @@ class Server {
   // можем не писать в конструктор переменные. TS сам создаст их если мы указали 
   //паблик протектед или прайват ли это
   constructor(protected ip: number, public fullname: string) {
-    //this.ip = ip
-    //this.fullname = fullname
+	//this.ip = ip
+	//this.fullname = fullname
   }
   public name: string
   private id: number
   protected status: string = 'working'
 
   getStatus(): string {
-    return this.status;
+	return this.status;
   }
 }
 //тут указываем класс как отдельный тип Server
@@ -48,7 +50,7 @@ const user: UserInterface = {
   name: 'pepe',
   age: 25,
   logInfo() {
-    console.log(this.name + this.age);
+	console.log(this.name + this.age);
   }
 }
 //создаем интерфейс и его имплементируем к классу
@@ -59,7 +61,7 @@ interface SayHello {
 class User implements SayHello {
   constructor(private name: string, private age: number) { }
   sayHello() {
-    console.log(this.name + ' Hello');
+	console.log(this.name + ' Hello');
   }
 }
 
@@ -78,3 +80,4 @@ const users: User[] = [
   { id: 1, name: 'V', age: 21 },
   { id: 2, name: 'E', age: 25 }
 ];
+*/
