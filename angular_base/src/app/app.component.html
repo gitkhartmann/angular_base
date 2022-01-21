@@ -303,7 +303,78 @@
 	}
 </style>
 -->
+
+<div class="container">
+	<h1>Angular Components</h1>
+	<h2>SubHeader</h2>
+
+	<app-post-form (onAdd)="updatePosts($event)"></app-post-form>
+
+	<hr />
+
+	<app-post *ngFor="let p of posts" [post]="p" (onRemove)="removePost($event)">
+		<div #info>
+			<small *ngIf="p.text.length > 10; else short">Пост длинный</small>
+			<ng-template #short> <small>Пост короткий</small></ng-template>
+		</div>
+	</app-post>
+
+</div>
+
+<!--
 <h1>Hello Angular World</h1>
+
+<h3>{{now |date |uppercase}}</h3>
+<!--
+<ul style="list-style: none">
+	<li *ngFor="let post of objs">
+		<h2>{{post.title}} {{post.author}}</h2>
+		<ul>
+			<li *ngFor="let comment of post.comments">
+				<p><strong>{{comment.name}}</strong><b>{{comment.text}}</b></p>
+			</li>
+		</ul>
+	</li>
+</ul>
+<!--
+<ul>
+	<li *ngFor="let num of arr; let idx = index">{{idx + 1}} <strong>{{num}}</strong></li>
+</ul>
+<!--
+<button (click)="toggle = !toggle"> Toggle</button>
+<div [ngSwitch]="toggle">
+	<p *ngSwitchCase="true" class="red">Lorem, ipsum.</p>
+	<p *ngSwitchCase="false" class="blue">Lorem, ipsum.</p>
+	<p *ngSwitchDefault>Lorem, ipsum.</p>
+</div>
+<!--
+<p *ngIf="toggle; else blueP" class="red">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, ipsum!</p>
+
+
+<ng-template #blueP>
+	<p class="blue">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe, unde?</p>
+</ng-template>
+<!--
+<button (click)="backgroundToggle = !backgroundToggle"> Toggle</button>
+<div [ngStyle]="{
+	width: '200px',
+	height: '200px',
+	borderRadius: '30px',
+	border: '2px solid #ccc',
+	background: backgroundToggle ? '#ccc' : 'forestgreen'
+}"></div>
+
+<p [ngClass]="{
+	red: backgroundToggle,
+	blue: !backgroundToggle
+}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil aut odio sed atque, consectetur laborum.</p>
+
+<p [class.red]="backgroundToggle" [class.blue]="!backgroundToggle">Lorem ipsum dolor sit amet consectetur adipisicing
+	elit. Ducimus, repudiandae!</p>
+<!--
+<input type="text" [(ngModel)]="title">
+<p><strong>{{title}}</strong></p>
+
 <p>{{title}}</p>
 
 <input type="text" (keyup.enter)="onInput($event)" (blur)="onBlur(myInput.value)" #myInput>
@@ -317,6 +388,7 @@
 <p><strong>{{obj.b.c}}</strong></p>
 <p><strong>{{'Hello' + ' World'}}</strong></p>
 -->
+<!--
 <hr>
 <app-post></app-post>
 <app-post></app-post>
